@@ -1,6 +1,5 @@
 function getComputerChoice (randomInt){
     randomInt = Math.floor(Math.random() * 3)
-    // console.log(randomInt);
     if (randomInt == 0)
          return "scissors";
     else if (randomInt == 1)
@@ -8,8 +7,6 @@ function getComputerChoice (randomInt){
     else
         return "rock";
 }
-
-// console.log(getComputerChoice());
 
 function getHumanChoice(){
     return window.prompt("What is your choice?", "").toLowerCase();
@@ -32,7 +29,7 @@ function playGame (number){
                 humanScore +=1;
             }
             else if (computerChoice == "rock" && humanChoice == "scissors"){
-                console.log("You loose! Scissors beat rock.");
+                console.log("You loose! Rock beats scissors.");
                 computerScore +=1;
             }
             else if (computerChoice == "scissors" && humanChoice == "rock"){
