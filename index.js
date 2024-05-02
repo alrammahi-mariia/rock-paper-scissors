@@ -12,9 +12,10 @@ function getComputerChoice (){
         return "rock";
 }
 
-const roundMsg = document.querySelector("#round-msg")
+
 
 function playRound(computerChoice, humanChoice){
+    const roundMsg = document.querySelector("#round-msg")
 
     if  (computerChoice == humanChoice){
         roundMsg.textContent = "It's a tie! Try again please.";
@@ -50,16 +51,18 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
         button.addEventListener("click", () => {
-        humanSelection = button.id;
+        const humanSelection = button.id;
+        const computerSelection = getComputerChoice();
 
-            const computerSelection = document.querySelector("#computer-choice");
-            computerSelection.textContent = `Computer selection: ${getComputerChoice()}`;
+            playRound(computerSelection, humanSelection);
+
+            const computerOption = document.querySelector("#computer-choice");
+            computerOption.textContent = `Computer selection: ${computerSelection}`;
             const playerScore = document.querySelector("#human-score");
-            playerScore.textContent = `Your score: ${humanScore + 1}`;
+            playerScore.textContent = `Your score: ${humanScore}`;
             const computerPoints = document.querySelector("#computer-score");
             computerPoints.textContent = `Computer score: ${computerScore}`;
                         
-            playRound(computerSelection, humanSelection);
             const msg = document.querySelector("#game-msg");
 
             if (humanScore === 5){
