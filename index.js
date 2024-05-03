@@ -15,13 +15,11 @@ function getComputerChoice (){
 
 
 function playRound(computerChoice, humanChoice){
+
     const roundMsg = document.querySelector("#round-msg")
 
-    if  (computerChoice == humanChoice){
-        roundMsg.textContent = "It's a tie! Try again please.";
-    }    
-    else if (computerChoice == "paper" && humanChoice == "scissors"){
-        roundMsg.textConten = "You win! Scissors beat paper.";
+    if (computerChoice == "paper" && humanChoice == "scissors"){
+        roundMsg.textContent = "You win! Scissors beat paper.";
         humanScore +=1;
     }
     else if (computerChoice == "rock" && humanChoice == "scissors"){
@@ -33,20 +31,24 @@ function playRound(computerChoice, humanChoice){
             humanScore +=1;
     }
     else if (computerChoice == "paper" && humanChoice == "rock"){
-        roundMsg.textContent = "You win! Rock beats paper.";
-        humanScore +=1;
+        roundMsg.textContent = "You loose! Paper beats rock.";
+        computerScore +=1;
     }
     
     else if (computerChoice == "scissors" && humanChoice == "paper"){
         roundMsg.textContent = "You loose! Scissors beat paper.";
             computerScore +=1;
     }
+    else if (computerChoice == "rock" && humanChoice == "paper"){
+        roundMsg.textContent = "You win! Paper beats rock.";
+            humanScore +=1;
+    }
     else {
-        roundMsg.textContent = "You win! Rock beats scissors.";
-        humanScore += 1;
+        {
+            roundMsg.textContent = "It's a tie! Try again please.";
+        }   
     }   
 }
-
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
